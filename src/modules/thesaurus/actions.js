@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import * as t from './action-types';
-import { thesaurusQuerySkeleton } from '../common/api';
+import { thesaurusQuerySkeleton, WSPoslistQuery } from '../common/api';
 import { rememberAdvancedSettingsPinned } from '../common/local-storage';
 
 export function fetchThesaurusResults(params) {
@@ -25,11 +25,10 @@ export function fetchThesaurusResults(params) {
 }
 
 export function fetchWSposlist() {
-  const WSposlistQuery = 'https://api.sketchengine.co.uk/bonito/run.cgi/thes_form?corpname=preloaded/ukwac3;lemma=;lpos=;format=json;api_key=PWPZI3I5IKW0MCLLV0X2V5PIGGDN5RI6;username=xkovar3';
 
   return function(dispatch) {
     dispatch({ type: t.STARTED_FETCHING_WSPOSLIST });
-    axios.get(WSposlistQuery)
+    axios.get(WSPoslistQuery)
       .then((response) => {
         dispatch({ type: t.COMPLETED_FETCHING_WSPOSLIST, data: response.data })
       })

@@ -26,6 +26,7 @@
   * [`npm test`](#-npm-test-)
   * [`npm run build`](#-npm-run-build-)
 - [Improvements and Issues](#improvements-and-issues)
+  * [CORS](#cors)
   * [Fetching WSposlist](#fetching-wsposlist)
 
 
@@ -209,6 +210,15 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 ## Improvements and Issues
+
+### CORS
+
+Access to the API from client is restricted by the `Access-Control-Allow-Origin` HTTP header. All requests are ran through a public proxy:
+```
+https://crossorigin.me/https://api.sketchengine.co.uk/ ...
+```
+
+This may cause a higher latency of the requests.
 
 ### Fetching WSposlist
 
