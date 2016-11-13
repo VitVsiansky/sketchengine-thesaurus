@@ -25,7 +25,6 @@ function getStateFromStorage() {
       stateInStorage = JSON.parse(stateInStorage)
     }
     const state = Object.assign({}, stateInStorage);
-    console.log(state);
     return state;
   } catch (err) {
     console.log(err);
@@ -35,7 +34,6 @@ function getStateFromStorage() {
 export function rememberAdvancedSettingsPinned(isPinned) {
   try {
     let newState = getStateFromStorage();
-console.log(newState);
     newState.thesaurus.advancedSettingsPinned = isPinned;
 
     localStorage.setItem('state', JSON.stringify(newState));

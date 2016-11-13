@@ -123,7 +123,7 @@ class BasicForm extends React.Component {
       <Form onSubmit={this.onSubmit} >
         <FlashMessagesList />
         <FormGroup>
-          <Input type="text" name="lemma" value={this.state.lemma} onChange={this.onChange} />
+          <Input type="text" required name="lemma" placeholder="lemma" value={this.state.lemma} onChange={this.onChange} />
         </FormGroup>
         {/*
           Advanced Settings is rendered either above the 'Submit' Button
@@ -131,7 +131,7 @@ class BasicForm extends React.Component {
         */}
         {this.props.advancedSettingsPinned ? this.renderAdvancedSettings() : null}
         <FormGroup>
-          <Button color="primary" type="submit">Submit</Button>
+          <Button color="primary" type="submit">Search for Similar Words</Button>
         </FormGroup>
         {this.props.advancedSettingsPinned ? null : this.renderAdvancedSettings() }
       </Form>

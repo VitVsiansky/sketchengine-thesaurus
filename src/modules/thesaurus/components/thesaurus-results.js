@@ -33,7 +33,6 @@ class ThesaurusResults extends React.Component {
 
   componentDidMount() {
     this.fetchResults();
-
   }
 
   fetchResults(lemma, settings) {
@@ -50,8 +49,6 @@ class ThesaurusResults extends React.Component {
   }
 
   isCluster() {
-    console.log('checking');
-    console.log(this.props.results.Words);
     if(this.props.results.Words.map((word) => {
       if(word.Clust) {
         return true;
@@ -84,7 +81,7 @@ class ThesaurusResults extends React.Component {
     ...wspos_dictProperties.slice(0, indexToRemove),
     ...wspos_dictProperties.slice(indexToRemove + 1)
     ];
-    console.log(wordTypesWithoutCurrent);
+
     return wordTypesWithoutCurrent.map((wordType) => {
       return (
         <a key={wordType} href="#" onClick={() => this.fetchOtherWordType(wordType)}>{this.props.results.wspos_dict[wordType]} </a>
@@ -94,16 +91,15 @@ class ThesaurusResults extends React.Component {
 
   renderWordCloud() {
     const canvas = ReactDOM.findDOMNode(this.refs.canvas);
-    const list = this.props.results.Words.map((word) => {
+    const list = this.props.results.Words.map((word, index) => {
       return [
         word.word,
-        Math.pow(word.score*5, 6)
+        60-(index*7)
       ]
     });
 
     if(this.props.location.query.includeheadword === 'true') {
-      console.log('rendering including wordcloud')
-      list.push([this.props.results.lemma, Math.pow(this.props.results.Words[0].score*5, 6)])
+      list.unshift([this.props.results.lemma, 60])
     }
 
     WordCloud(canvas, { list: list, minSize: 10});

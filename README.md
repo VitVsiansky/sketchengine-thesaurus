@@ -38,30 +38,30 @@ URLs contain all query paramaters and are shareable.
 
 ### Basic Form
 
-##### Lemma
+#### Lemma
 
 Enter a word into the main field to search for similar words. <br> Lemma is automatically converted to lower
 case and rejected in case it is an empty string.
 
 ### Advanced Settings
 
-##### Open and Close
+#### Open and Close
 
 Clicking on the `Settings` button opens the Advanced Settings panel, clicking on the `Close` button
 closes the panel
 
-##### Settings / Development Controls
+#### Settings / Development Controls
 
 Clicking on either button in the navigation on the left side of the panel header switches the view to the corresponding section.
 
-##### Pin and Unpin
+#### Pin and Unpin
 
 Clicking on the `Pin` button in the Advanced Settings panel positions the panel under the Lemma search bar
 and displays it as a single line. Click `Unpin` to reset the position. <br>
 Development controls are not available when pinned. <br>
 Pin and Unpin status is automatically persisted to local storage <br>
 
-##### Reset
+#### Reset
 
 Clicking on the `Reset` button resets the settings to initial state:
 
@@ -76,37 +76,35 @@ advancedSettings: {
 }
 ```
 
-##### Remember
+#### Remember
 
 Clicking on the `Remember` button saves the current settings to local storage
 
 ### Results
 
-##### Header
+#### Header
 
 Basic data received from the API is displayed in the results header:
 `lemma`, `lpos`, `freq` and `relfreq` (rounded to the thousandths)
 
-##### Other Word Types
+#### Other Word Types
 
 Using the received `wspos_dict` property, links to other word types of the same lemma are displayed for
 quick navigation.
 
-##### Word Cloud
+#### Word Cloud
 
 Received words are rendered into a word cloud using the `wordcloud` dependency. <br>
 Font size of the rendered words is determined by the following equation:
 ```js
-Math.pow(word.score*5, 6)
+60-(index*7)
 ```
 Minimum font size is set to 10. <br>
 
 If the `includeheadword` parameter is set to `true`, current `lemma` is also displayed in the Word Cloud
 with font size equivalent to the font size of the word with the highest score.
 
-*__Known issue:__ The Word Cloud may sometimes be rendered blank because of the words' font size*
-
-##### Results Table
+#### Results Table
 
 The table is rendered with the following columns: `word`, `score` and `freq`. <br>
 If any of the received words contain a `Clust` property, an additional column is rendered with
@@ -114,7 +112,9 @@ the words in the clusters.
 
 ### Error Handling
 
-##### Validations
+#### Validations
+
+Both HTML and JS validations are setup to prevent incorrect requests.
 
 Following input validations are currently in place:
 
@@ -125,11 +125,11 @@ Following input validations are currently in place:
 
 If any of the above are not true, an error message is rendered and the form is not submitted.
 
-##### API errors
+#### API errors
 
 If the received data from query contain the `error` property, it is rendered as an error message and no results are displayed.
 
-##### Error Messages
+#### Error Messages
 
 Error messages are handled with the `flash-messages` module
 

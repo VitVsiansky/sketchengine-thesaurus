@@ -73,14 +73,14 @@ class AdvancedSettings extends React.Component {
             <FormGroup row>
               <Label xs={6}>Minimum Score</Label>
               <Col xs={6}>
-                <Input type="number" name="minthesscore" value={this.props.minthesscore} onChange={this.props.onChange} />
+                <Input type="number" min={0} step={0.01} name="minthesscore" value={this.props.minthesscore} onChange={this.props.onChange} />
               </Col>
             </FormGroup>
 
             <FormGroup row>
               <Label xs={6}>Minimum Similarity in a Cluster</Label>
               <Col xs={6}>
-                <Input type="number" name="minsim" value={this.props.minsim} onChange={this.props.onChange} />
+                <Input type="number" min={0} step={0.01} name="minsim" value={this.props.minsim} onChange={this.props.onChange} />
               </Col>
             </FormGroup>
 
@@ -116,7 +116,7 @@ class AdvancedSettings extends React.Component {
             <FormGroup row>
               <Label xs={6}>Maximum Items</Label>
               <Col xs={6}>
-                <Input type="number" name="maxthesitems" value={this.props.maxthesitems} onChange={this.props.onChange} />
+                <Input type="number" min={0} name="maxthesitems" value={this.props.maxthesitems} onChange={this.props.onChange} />
               </Col>
             </FormGroup>
 

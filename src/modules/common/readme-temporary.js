@@ -7,7 +7,7 @@ class ReadmeTemporary extends React.Component {
     return (
       <Container>
         <Link to="/thesaurus">Thesaurus</Link><br />
-        Read the <a href="#" target="_blank">documentation</a>
+        Read the <a href="https://github.com/VitVsiansky/sketchengine-thesaurus" target="_blank">documentation</a>
       </Container>
     );
   }
